@@ -1,5 +1,5 @@
-const CACHE='my-year-v54';
-const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='my-year-v56';
+const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./highbury.webp'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k.startsWith('my-year-')).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 const LOGOS=new Set(['soccer/500/359','nba/500/chi','nhl/500/det','leagues/500/f1'].map(p=>'https://a.espncdn.com/i/teamlogos/'+p+'.png'));
